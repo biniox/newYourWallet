@@ -1,9 +1,8 @@
 .Menu__wrapper{
     position: fixed;
     height: 100vh;
-    background-color:  rgb(65, 60, 60);
-    width: 400px;
-    padding-left: 20px;
+    background-color:   #002C40;
+    width: 300px;
     color: white;
     
     // display: flex;
@@ -11,16 +10,60 @@
 
     &_icon {
         text-align: left;
-        font-size: 46px;
+        font-size: 36px;
+        padding-top: 10px;
+        width: auto;
+        padding-left: 20px;
+        background-color: #044964;
+        height: 60px;
+
+        & .fa-bars {
+
+            // margin-bottom: 10px;
+        }
+        & .fa-bars:hover {
+            cursor: pointer;
+        }
     }
 
     &_profil {
         display: flex;
         flex-direction: column;
+        padding-top: 10px;
 
         img{
             width: 100px;
             border-radius: 50%;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+
+        :nth-child(2){
+            font-size: 1.5em;
+            color: lightblue;
+            padding-top: 20px;
+        }
+        
+    }
+
+    &_menu {
+        li{
+            list-style: none;
+            font-size: 1.3em;
+            padding: 20px 0px;
+            text-align: left;
+            padding-left: 20px;
+            &:hover {
+                cursor: pointer;
+                background-color: lighten($color: rgb(65, 60, 60), $amount: 10);
+            }
+
+            a {
+                text-decoration: none;
+                color: rgb(161, 199, 84);
+                padding-left: 20px;
+                
+            }
         }
     }
 }

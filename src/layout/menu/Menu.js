@@ -18,15 +18,15 @@ const Menu = () => (
         <ul>
             <li>
                 <FontAwesomeIcon icon={faChartLine} />
-                Dashboard
+                <a href="">Dashboard</a>
             </li>
             <li>
                 <FontAwesomeIcon icon={faInfoCircle} />
-                Szczegóły
+                <a href="">Szczegóły</a>
             </li>
             <li>
                 <FontAwesomeIcon icon={faTasks} />
-                Tryb zarządzania
+                <a href="">Tryb zarządzania</a>
             </li>
         </ul>
     </div>
