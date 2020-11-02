@@ -1,0 +1,40 @@
+@import '../../colors.scss';
+
+.AddButton {
+
+
+    &__btn {
+        position: fixed !important;
+        right: 50px;
+        bottom: 50px;
+        margin-left: 20px;
+        width: auto;
+        color: $fontColor1;
+        text-align: center;
+        font-size: 2em;
+        position: relative;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        line-height: 80px;  
+        background-color: $mainColor1;
+        box-shadow: 0px 0px 26px 7px rgb(127, 158, 206);
+        cursor: pointer;
+        transition: 0.1s;
+
+        &-active:nth-child(1) {
+            transform: translateX(-120%);
+        }
+        &-active:nth-child(2) {
+            transform: translateX(-240%);
+        }
+
+
+    }
+
+
+
+
+
+
+}

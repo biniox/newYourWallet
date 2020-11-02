@@ -1,0 +1,25 @@
+@import '../../colors.scss';
+
+.dashboardWrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-top: 70px;
+    color: $fontColor1;
+
+    &__info{
+        min-width: 300px;
+        min-height: 140px;
+        background-color: $mainColor4;
+        box-shadow: 0px 0px  16px $mainColor1;
+        margin-top: 20px;
+        padding: 10px;
+
+        span{
+            display: block;
+        }
+        Span:nth-child(1){
+            font-size: 3em;
+        }
+    }
+}
