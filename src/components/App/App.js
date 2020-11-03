@@ -8,6 +8,7 @@ import AddButton from '../AddButton/AddButton';
 
 //pages
 import Dashboard from './../../pages/Dashboard/Dashboard';
+import Modal from '../modalComponents/Modal/Modal/Modal';
 const App = () =>  (
     <div className="App" >
 
@@ -17,9 +18,9 @@ const App = () =>  (
         
         <AddButton/>
         <div className="App__page">
-          <Dashboard/>  
+          <Dashboard/>
         </div>
-        
+        <Modal/>  
     </div>
   );
 
