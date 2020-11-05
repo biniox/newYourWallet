@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartLine, faChevronCircleLeft, faChevronCircleRight, faInfoCircle, faTasks } from '@fortawesome/free-solid-svg-icons'
+import {NavLink} from 'react-router-dom'
+import { useState, useRef } from 'react';
 
 import defaultIMG from './../../assets/img/defaultIMG.jpg'
 import './Menu.scss';
-import { useState, useRef } from 'react';
 
 const Menu = () => {
     const [icon, setIcon] = useState(true);
@@ -25,21 +26,29 @@ const Menu = () => {
     </div>
     <div className="Menu__wrapper_menu">
         <ul>
+
+
+            <NavLink to='/dashboard'>
             <li>
                 <FontAwesomeIcon icon={faChartLine} />
-                <a href="">Dashboard</a>
+                <span>Dashboard</span>
             </li>
+            </NavLink>
+
+            <NavLink to='/details'>
             <li>
                 <FontAwesomeIcon icon={faInfoCircle} />
-                <a href="">Szczegóły</a>
+                <span>Szczegóły</span>
             </li>
+            </NavLink>
+
+            <NavLink to='/management'>
             <li>
                 <FontAwesomeIcon icon={faTasks} />
-                <a href="">Tryb zarządzania</a>
+                <span>Tryb zarządzania</span>
             </li>
-            <li>
-                
-            </li>
+            </NavLink>
+
         </ul>
     </div>
 

@@ -17,6 +17,15 @@
         text-transform: uppercase;
         margin-left: 20px;
     }
+    span:last-child {
+        font-size: 30px;
+
+        :hover {
+            color: rgb(224, 193, 193);
+            cursor: pointer;
+        }
+    }
+
 
 
 }

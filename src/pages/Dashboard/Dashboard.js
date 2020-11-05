@@ -1,11 +1,27 @@
 
 import Chart from '../../components/chart/chart';
-import Modal from '../../components/modalComponents/Modal/Modal/Modal';
+import { useState } from 'react';
 import Plate from '../../components/plate/plate';
 import Purpose from '../../components/Purpose/Purpose';
 import './Dashboard.scss';
 
 const Dashboard = () => {
+    // data for Charts
+    const [monthChartData, setMonthChartData] = useState({
+        title: "Wydatki w posczególnych mieisącach",
+        labels:['Sierpień', 'Wrzesień', 'Pazdziernik', 'Listopad', 'Grudzień'],
+        data:  [10,38,12,67,8],
+        type: 'Bar',
+    });
+
+    const [categoryChartData, setCategoryChartData] = useState({
+        title: "Rozkład twoich wydatków w tym miesiącu",
+        labels:['Sierpień', 'Wrzesień', 'Pazdziernik', 'Listopad', 'Grudzień'],
+        data:  [10,38,12,67,8],
+        type: 'Pie',
+    });
+
+
     return (
         <>
         <div className="dashboardWrapper">
@@ -18,8 +34,8 @@ const Dashboard = () => {
             <div className="dashboardWrapper__statistic">
                 <h2>Statystyki</h2>
                     <div className="dashboardWrapper__container">
-                        <Chart title="Wydatki w posczególnych mieisącach"/>
-                        <Chart title="Rozkład twoich wydatków w tym miesiącu"/>
+                        <Chart {...monthChartData} />
+                        <Chart {...categoryChartData} />
                         <Purpose/>
 
                     </div>
