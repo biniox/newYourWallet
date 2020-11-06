@@ -5,19 +5,29 @@ import {useState} from 'react';
 import ExpenseHistoryItem from './../ExpenseHistoryItem/ExpenseHistoryItem'
 
 const ExpenseHistory = () => {
-
+    /* the methods, generating list of products and pagination Buttons */
      const mappExpense = (number) => expense.map((item, index) => 
                     (index<5*(number+1) && (index>=(number*5))) && <ExpenseHistoryItem {...item} /> );
 
-    
+    const mappButton = (activeNumber) => {
+        let generatedButton = []; 
+        for(let i = 0; i<Math.ceil(expense.length/5); i++) {
+            generatedButton.push(
+                <button 
+                    value={i} 
+                    className={activeNumber==i ? "active" : ""} 
+                    onClick={handlerClick}
+                >
+                    {i+1}
+                </button>
+            );
+        }
+        return generatedButton;
+    }
 
-    const handlerClick = (e) => {
-        document.querySelector('button.active').classList.remove('active');
-        e.target.classList.toggle('active');   
-        let fff = mappExpense(e.target.value*1);
-        setMappedItems(fff);
-        debugger
-
+    const handlerClick = (e) => { 
+        setMappedItems(mappExpense(e.target.value*1));
+        setMappedButtons(mappButton(e.target.value*1));
     }
     
     const [expense, setExpense] = useState([
@@ -112,9 +122,15 @@ const ExpenseHistory = () => {
             category: 'Gry i Rozrywka',
             cost: 199.99
         },
+        {
+            date: '23.10.2020',
+            product: 'kiełbasa',
+            category: 'Gry i Rozrywka',
+            cost: 12.99
+        },
     ]);
-    // const [filterPage, setFilterPage] = useState(0);
     const [mappedItems, setMappedItems] = useState(mappExpense(0));
+    const [mappedButtons, setMappedButtons] = useState(mappButton(0))
 
 
 
@@ -151,10 +167,7 @@ const ExpenseHistory = () => {
             {mappedItems}
 
             <div className="ExpenseHistoryWrapper__table-paging">
-            <button value="0" className="active" onClick={handlerClick}>1</button>
-            <button value="1"  onClick={handlerClick}>2</button>
-            <button value="2"  onClick={handlerClick}>3</button>
-            <button value="3"  onClick={handlerClick}>4</button>
+            {mappedButtons}
             </div>
 
 

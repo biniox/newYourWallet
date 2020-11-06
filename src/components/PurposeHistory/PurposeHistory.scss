@@ -1,0 +1,12 @@
+@import './../../colors.scss';
+
+.PurposeHistoryWrapper {
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    
+    background-color: $mainColor4;
+    box-shadow: 0px 0px 16px $mainColor4;
+    margin-top: 10px;
+    padding: 20px;
+}

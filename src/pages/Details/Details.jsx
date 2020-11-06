@@ -1,5 +1,6 @@
 import ExpenseHistory from '../../components/ExpenseHistory/ExpenseHistory';
 import Plate from '../../components/plate/plate';
+import PurposeHistory from '../../components/PurposeHistory/PurposeHistory';
 import './Details.scss';
 
 const Details = () => {
@@ -16,6 +17,7 @@ const Details = () => {
             </div>
             <div className="detailsWrapper__History-Purpose">
                 <h2>Historia Celi</h2>
+                <PurposeHistory/>
             </div>
         </div>
     );

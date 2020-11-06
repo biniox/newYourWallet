@@ -18,7 +18,7 @@ useEffect(()=> {
         />
         <div className="purposeItemWrapper__content"  >
            <span>
-                <h2>{value}</h2><h3>{moneySave} PLN</h3>
+                <h2 className="label">{value}</h2><h3>{moneySave} PLN</h3>
            </span>
 
            <span>
