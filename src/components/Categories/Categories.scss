@@ -1,0 +1,30 @@
+@import './../../colors.scss';
+
+.CategoriesWrapper {
+    display: flex;
+    flex-direction: column;
+    
+    background-color: $mainColor4;
+    box-shadow: 0px 0px 16px $mainColor4;
+    margin-top: 10px;
+    padding: 20px;
+
+    .CategoriesWrapper__add {
+        color: $fontColor1;
+        margin-left: 10px;
+        cursor: pointer;
+
+        &:hover {
+            color: darken($fontColor1, 30%);
+        }
+    }
+
+    .Categories__item{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        font-size: 1.2em;
+
+
+    }
+}

@@ -1,0 +1,46 @@
+@import './../../colors.scss';
+
+.managementWrapper{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+
+    color: $fontColor1;
+    
+    h2 {
+        color: $mainColor1;
+        width: 100%;
+    }
+    div {
+        margin-bottom: 20px;
+    }
+
+    &__plates {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+
+        * {
+            min-width: 300px;
+            width: 40%;
+        }
+    }
+
+    &__Edit {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        & > div{
+            flex-grow: 1;
+            margin-right: 20px;
+        }
+
+    }
+
+
+
+    
+
+}

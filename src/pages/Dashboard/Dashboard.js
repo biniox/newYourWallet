@@ -28,18 +28,11 @@ const Dashboard = () => {
             <Plate value="70PLN" description="Środków do końca miesiąca" />
             <Plate value="60PLN" description="Wydane od początku miesiąca" />
             <Plate value="700PLN" description="Oszczędzono w poprzednim miesiącu" />
-            
-        </div>
-        <div className="dashboardWrapper">
-            <div className="dashboardWrapper__statistic">
-                <h2>Statystyki</h2>
-                    <div className="dashboardWrapper__container">
-                        <Chart {...monthChartData} />
-                        <Chart {...categoryChartData} />
-                        <Purpose/>
+            <h2>Statystyki</h2>
+            <Chart {...monthChartData} />
+            <Chart {...categoryChartData} />
+            <Purpose/>
 
-                    </div>
-            </div>
         </div>
         </>
     );

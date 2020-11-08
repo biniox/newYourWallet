@@ -8,6 +8,20 @@
     margin-top: 20px;
     box-shadow: 0px 0px 5px $mainColor1;
     color: $fontColor1;
+
+    &.edit {
+       .purposeItemWrapper__content {
+            h2.money {
+                .editIcon {
+                    cursor: pointer;
+                    :hover {
+                        color: darken($fontColor1, 20%)
+                    }
+                }
+            }
+
+       } 
+    }
     &__bar {
         position: absolute;
         left: -100%;
@@ -28,6 +42,9 @@
         width: 100%;
         color: $fontColor1;
 
+        h2.money {
+            color: $fontColor1;
+        }
         .label {
             color: $fontColor1;
         }
@@ -38,4 +55,12 @@
         box-shadow: 0px 0px 10px 0px $mainColor1;
         cursor: pointer;
     }
+}
+
+.editToolbarWrapper{
+    padding: 10px;
+    // font-size: 1.5em;
+    display: inline;
+    // color: $mainColor1;
+
 }

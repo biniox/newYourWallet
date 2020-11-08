@@ -10,8 +10,10 @@ import AddButton from '../AddButton/AddButton';
 //pages
 import Dashboard from './../../pages/Dashboard/Dashboard';
 import Details from '../../pages/Details/Details';
+import Management from '../../pages/Management/Management';
 
 import Modal from '../modalComponents/Modal/Modal/Modal';
+
 const App = () =>  (
     <div className="App" >
         <Router>
@@ -25,6 +27,7 @@ const App = () =>  (
                 <Route exact path="/" component={Dashboard} />
                 <Route exact path="/dashboard" exact component={Dashboard} />
                 <Route exact path="/details" exact component={Details} />
+                <Route exact path="/management" exact component={Management} />
                 </div>
               </Switch>
 

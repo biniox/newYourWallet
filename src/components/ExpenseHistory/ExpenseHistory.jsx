@@ -4,10 +4,10 @@ import {useState} from 'react';
 
 import ExpenseHistoryItem from './../ExpenseHistoryItem/ExpenseHistoryItem'
 
-const ExpenseHistory = () => {
+const ExpenseHistory = ({edit}) => {
     /* the methods, generating list of products and pagination Buttons */
      const mappExpense = (number) => expense.map((item, index) => 
-                    (index<5*(number+1) && (index>=(number*5))) && <ExpenseHistoryItem {...item} /> );
+                    (index<5*(number+1) && (index>=(number*5))) && <ExpenseHistoryItem {...item} edit={edit} /> );
 
     const mappButton = (activeNumber) => {
         let generatedButton = []; 
@@ -161,7 +161,8 @@ const ExpenseHistory = () => {
                 product: "Produkt", 
                 category: "Kategoria", 
                 cost: "Kwota",
-                label: true
+                label: true,
+                edit: edit
             }} />
 
             {mappedItems}

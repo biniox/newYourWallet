@@ -4,7 +4,7 @@ import './PurposeHistory.scss';
 
 import {useState} from 'react';
 
-const PurposeHistory = () => {
+const PurposeHistory = ({edit=false}) => {
 
     const handlerBookmark = (number) => {
         setMappedPurpose(mappPurpose(number));
@@ -17,7 +17,7 @@ const PurposeHistory = () => {
 
     const mappPurpose = (number=0) =>  {
         let toMappArray = number ? purpose.filter(item => item.money==item.moneySave) : purpose.filter(item => item.money!=item.moneySave);
-        return toMappArray.map(item => <PurposeItem {...item} />); 
+        return toMappArray.map(item => <PurposeItem {...item} edit={edit} />); 
     }
 
 

@@ -14,21 +14,9 @@
         margin-bottom: 20px;
     }
 
-    &__plates {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
 
-        * {
-            min-width: 300px;
-            width: 40%;
-        }
-    }
 
-    &__History-Expense {
-        display: flex;
-        flex-direction: column;
-    }
+
 
 
 

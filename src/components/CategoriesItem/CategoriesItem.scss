@@ -1,0 +1,17 @@
+@import './../../colors.scss';
+
+.CategoriesItemWrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 1.2em;
+
+    &__edit {
+    font-size: 1.2em;
+        &:hover{
+            cursor: pointer;
+            color: darken($fontColor1, 30%);    
+        }
+        
+    }
+}

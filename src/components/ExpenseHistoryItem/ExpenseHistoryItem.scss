@@ -13,6 +13,14 @@
     &-item.price{
         font-size: 1.5em;
     }
+    &-item.action{
+        font-size: 1.5em;
+
+        :hover {
+            cursor: pointer;
+            color: darken($fontColor1, 20%);
+        }
+    }
     
     &-item.label {
         font-weight: 700;
