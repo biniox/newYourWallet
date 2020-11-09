@@ -1,19 +1,31 @@
 @import '../../colors.scss';
 
-.plate {
-    &__info{
-        min-width: 400px;
-        min-height: 140px;
-        background-color: $mainColor4;
-        box-shadow: 0px 0px  16px $mainColor1;
-        margin-top: 20px;
-        padding: 10px;
-        min-width: 20vw;
-        span{
-            display: block;
-        }
-        Span:nth-child(1){
-            font-size: 3em;
+.plateWrapper{
+    position: relative;
+    min-width: 400px;
+    min-height: 140px;
+    background-color: $mainColor4;
+    box-shadow: 0px 0px  16px $mainColor1;
+    margin-top: 20px;
+    padding: 10px;
+    min-width: 20vw;
+    span{
+        display: block;
+    }
+    Span:nth-child(1){
+        font-size: 3em;
+    }
+
+
+    &__edit{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 2em;
+
+        :hover {
+            cursor: pointer;
+            color: darken($fontColor1, 30%);
         }
     }
 }

@@ -1,6 +1,6 @@
 @import '../../../../colors.scss';
 
-.modalWrapper {
+.modalWrapper__container {
     position: absolute;
     z-index: 9999;
     width: 100vw;
@@ -20,7 +20,8 @@
         box-shadow: 0px 0px 16px $mainColor4;
         padding: 10px;
         color: $fontColor1;
-        animation: modalAnimation 1s;
+        animation: modalAnimation 0.3s;
+        z-index: 9999;
 
     }
 

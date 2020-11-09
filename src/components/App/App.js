@@ -13,28 +13,33 @@ import Details from '../../pages/Details/Details';
 import Management from '../../pages/Management/Management';
 
 import Modal from '../modalComponents/Modal/Modal/Modal';
+import ModalProvider from '../../context/modalStore';
 
 const App = () =>  (
     <div className="App" >
-        <Router>
-          <Menu/>
-          <Header/> 
-          <AddButton/>
+      <ModalProvider>
+          <Router>
+            <Menu/>
+            <Header/> 
+            <AddButton/>
 
 
-              <Switch>
-              <div className="App__page">
-                <Route exact path="/" component={Dashboard} />
-                <Route exact path="/dashboard" exact component={Dashboard} />
-                <Route exact path="/details" exact component={Details} />
-                <Route exact path="/management" exact component={Management} />
-                </div>
-              </Switch>
+                <Switch>
+                <div className="App__page">
+                  <Route exact path="/" component={Dashboard} />
+                  <Route exact path="/dashboard" exact component={Dashboard} />
+                  <Route exact path="/details" exact component={Details} />
+                  <Route exact path="/management" exact component={Management} />
+                  </div>
+                </Switch>
 
-        </Router>
+          </Router>
 
 
-          {/* <Modal/>   */}
+            <Modal/>  
+      </ModalProvider>
+        
+
     </div>
   );
 

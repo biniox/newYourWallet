@@ -1,9 +1,12 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import {faEllipsisV, faMinus, faPlus} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import './AddButton.scss';
+import { modalContext } from '../../context/modalStore';
 
 const AddButton = () => {
+
+    const {modal, setModal} = useContext(modalContext);
 
     const firstRef = useRef();
     const secondRef = useRef();
@@ -12,13 +15,15 @@ const AddButton = () => {
         secondRef.current.classList.toggle("AddButton__btn-active");
     }
 
+    const handleClickExpense = () => setModal(true);
+    const handleClickBudget = () => setModal(true);
 
     return (
     <div className="AddButton">
-        <div ref={firstRef}className="AddButton__btn">
+        <div onClick={handleClickExpense} ref={firstRef}className="AddButton__btn">
             <FontAwesomeIcon icon={faMinus}/>
         </div>
-        <div ref={secondRef}className="AddButton__btn">
+        <div onClick={handleClickBudget} ref={secondRef}className="AddButton__btn">
             <FontAwesomeIcon icon={faPlus}/>
         </div>
         <div onClick={handleClick} className="AddButton__btn">

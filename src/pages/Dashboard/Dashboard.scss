@@ -4,21 +4,33 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding-top: 70px;
+    padding-top: 20px;
     color: $fontColor1;
-    margin-left: 5vw;
-    margin-right: 5vw;
+    margin-left: 20px;
+    margin-right: 20px;
 
     & > h2 {
         padding-bottom: 10px;
         color: $mainColor1;
         width: 100%;
         padding-top: 30px;;
+        margin-left: 10px;
     }
-
+    & > &__plate {
+        width: 25%;
+        min-width: 300px;
+        padding: 0px;
+    }
     & > div {
-        width: 400px;
-        padding-top: 20px;
+        width: 40%;
+        flex-grow: 1;
+        padding-top: 10px;
+        margin: 10px;
+        padding: 10px;
     }
+    
+
+
+    
 
 }

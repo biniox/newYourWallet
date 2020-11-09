@@ -28,7 +28,7 @@ useEffect(()=> {
                <h2 className="money">
                    {money}PLN                
                    <div className="editToolbarWrapper">
-    {edit && <span className="editIcon"><FontAwesomeIcon icon={faPenSquare} /></span> }
+                        {edit && <span className="editIcon"><FontAwesomeIcon icon={faPenSquare} /></span> }
                     </div>
                 </h2>
 
