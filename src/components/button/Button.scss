@@ -1,0 +1,20 @@
+@import '../../colors.scss';
+
+.ButtonWrapper {
+    background-color: $mainColor1;
+    box-shadow: 0px 0px 6px $mainColor1;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 2%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.1s;
+    
+    &:hover {
+        background-color: lighten($mainColor1, 1%);
+        font-size: 1.1em;
+    }
+
+}

@@ -2,11 +2,12 @@ import React, { useRef, useContext } from 'react';
 import {faEllipsisV, faMinus, faPlus} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import './AddButton.scss';
-import { modalContext } from '../../context/modalStore';
+
+import { globalContext } from './../../context/GlobalStore';
 
 const AddButton = () => {
 
-    const {modal, setModal} = useContext(modalContext);
+    const {modal, setModal} = useContext(globalContext);
 
     const firstRef = useRef();
     const secondRef = useRef();
@@ -15,8 +16,8 @@ const AddButton = () => {
         secondRef.current.classList.toggle("AddButton__btn-active");
     }
 
-    const handleClickExpense = () => setModal(true);
-    const handleClickBudget = () => setModal(true);
+    const handleClickExpense = () => setModal({type: 'ADD_EXPENSE'});
+    const handleClickBudget = () => setModal({type: 'ADD_BUDGET'});
 
     return (
     <div className="AddButton">

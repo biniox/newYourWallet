@@ -2,21 +2,24 @@ import {useContext} from 'react'
 
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { modalContext } from '../../../../context/modalStore';
+
+import { globalContext } from '../../../../context/GlobalStore';
+
 import './Modal.scss';
 
 const Modal = () => {
-    const {modal, setModal} = useContext(modalContext);
+    const {modal, setModal} = useContext(globalContext);
+    const {display, modalComponent} = modal;
 
-    const handleClickExit = () => setModal(false);
+    const handleClickExit = () => setModal({type: 'HIDE'});
     
     return(
         <div className="modalWrapper">
-            {modal && (<>
+            {display && (<>
                 <div onClick={handleClickExit} className="modalWrapper__container"></div>
                 <div className="modalWrapper__container__window">
                     <FontAwesomeIcon onClick={handleClickExit} className="modalWrapper__container__close" icon={faWindowClose} />
-                    <h2>Modal</h2>
+                    {modalComponent}
                 </div>  
         </>)} 
             
