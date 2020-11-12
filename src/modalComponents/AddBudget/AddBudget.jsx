@@ -6,7 +6,7 @@ import {NotificationManager} from 'react-notifications'
 import './AddBudget.scss';
 
 const AddBudget = () => {
-    const {userData, setUserData, modal, setModal} = useContext(globalContext);
+    const {userData, setUserData, setModal} = useContext(globalContext);
     const {budget} = userData;
 
     const [inputState, setInputState] = useState(budget);

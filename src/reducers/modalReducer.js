@@ -1,5 +1,5 @@
-import Plate from "../components/plate/plate";
 import AddBudget from "../modalComponents/AddBudget/AddBudget";
+import AddExpense from "../modalComponents/AddExpense/AddExpense";
 
 const modalReducer = (state, action) => {
     switch (action.type) {
@@ -7,7 +7,7 @@ const modalReducer = (state, action) => {
             return {display: false, modalComponent: false};
             break;
         case 'ADD_EXPENSE':
-            return {display: true, modalComponent: <Plate/>};
+            return {display: true, modalComponent: <AddExpense/>};
             break;
         case 'ADD_BUDGET':
             return {display: true, modalComponent: <AddBudget/>};

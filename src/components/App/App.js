@@ -35,8 +35,8 @@ const App = () =>  (
                   </div>
                 </Switch>
           </Router>
-            {/* <Modal/>   */}
-            <Loader/>
+            <Modal/>  
+            {/* <Loader/> */}
             <NotificationContainer/>
       </GlobalProvider>
         

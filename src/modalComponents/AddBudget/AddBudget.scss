@@ -6,17 +6,17 @@
     flex-direction: column;
     justify-content: start;
     height: 300px;
-    width: 300px;
+    width: 340px;
+    padding-left: 20px;
+    padding-right: 20px;
 
 
     input{
         height: 50px;
-        min-height: 50px;
         color: $mainColor4;
         font-weight: bold;
         margin-bottom: 20px;
         margin-top: 20px;
-        box-shadow: 0px 0px 116px $mainColor4;
     }
 
     &__form {
