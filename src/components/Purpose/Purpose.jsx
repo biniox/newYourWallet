@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { globalContext } from '../../context/GlobalStore';
 import PurposeItem from '../PurposeItem/PurposeItem';
 import './Purpose.scss';
 
 
 const Purpose = () => {
-    const [purpose, setPurpose] = useState([ {value: "KON", moneySave: "70", money: 80 },{value: "Mydło", moneySave: 60, money: 80 },{value: "Waga", moneySave: 20, money: 100 }]);
-    let items = purpose.map(item => <PurposeItem {...item} /> );
+    const {userPurpose, setUserPurpose} = useContext(globalContext);
+    const notEnd = userPurpose.filter(item => item.money>item.moneySave);
+    let items = notEnd.map(item => <PurposeItem {...item} /> );
 
 
     return (

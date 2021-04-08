@@ -1,11 +1,20 @@
 
 import Chart from '../../components/chart/chart';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Plate from '../../components/plate/plate';
 import Purpose from '../../components/Purpose/Purpose';
+
+import { globalContext } from '../../context/GlobalStore';
+
 import './Dashboard.scss';
 
+
+
+
 const Dashboard = () => {
+
+    const {userData : {actualBudget, currentExpense, lastMonthSavings }, setUserData} = useContext(globalContext);
+    
     // data for Charts
     const [monthChartData, setMonthChartData] = useState({
         title: "Wydatki w posczególnych mieisącach",
@@ -26,13 +35,13 @@ const Dashboard = () => {
         <>
         <div className="dashboardWrapper">
             <div className="dashboardWrapper__plate">
-                <Plate value="70PLN" description="Środków do końca miesiąca" />
+                <Plate value={actualBudget} description="Środków do końca miesiąca" />
             </div>
             <div className="dashboardWrapper__plate">
-                <Plate value="60PLN" description="Wydane od początku miesiąca" />
+                <Plate value={currentExpense} description="Wydane od początku miesiąca" />
             </div>
             <div className="dashboardWrapper__plate">
-                <Plate value="700PLN" description="Oszczędzono w poprzednim miesiącu" />
+                <Plate value={lastMonthSavings} description="Oszczędzono w poprzednim miesiącu" />
             </div>
             
             
