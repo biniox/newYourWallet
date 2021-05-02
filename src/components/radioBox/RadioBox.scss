@@ -1,0 +1,17 @@
+@import './../../colors.scss';
+
+
+.RadioBoxWrapper {
+    input {
+        display: inline;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    display: flex;
+    align-items: center;
+    div.RadioBoxWrapper__item {
+        margin: 0;
+    }
+
+}

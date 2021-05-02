@@ -44,98 +44,98 @@ const GlobalProvider = ({children}) => {
             id: "1",
             date: "6.11.2020",
             product: "Ziemniaki",
-            category: 1,
+            category: 3,
             cost: 6.99
         },
         {
             date: '6.11.2020',
             product: 'Wódeczka',
-            category: 'Żywność',
+            category: 1,
             cost: 70
         },
         {
             date: '5.11.2020',
             product: 'Komputer',
-            category: 'Elektronika',
+            category: 2,
             cost: 800
         },
         {
             date: '4.11.2020',
             product: 'fajeczki',
-            category: 'Używki',
+            category: 3,
             cost: 70
         },
         {
             date: '3.11.2020',
             product: 'Cyberpunk 2077',
-            category: 'Gry i Rozrywka',
+            category: 2,
             cost: 199.99
         },
         {
             date: '2.11.2020',
             product: 'Bułeczki',
-            category: 'Żywność',
+            category: 1,
             cost: 12.67
         },
         {
             date: '1.11.2020',
             product: 'Wódeczka',
-            category: 'Żywność',
+            category: 3,
             cost: 70
         },
         {
             date: '31.10.2020',
             product: 'Komputer',
-            category: 'Elektronika',
+            category: 1,
             cost: 800
         },
         {
             date: '30.10.2020',
             product: 'fajeczki',
-            category: 'Używki',
+            category: 2,
             cost: 70
         },
         {
             date: '29.10.2020',
             product: 'Cyberpunk 2077',
-            category: 'Gry i Rozrywka',
+            category: 1,
             cost: 199.99
         },
 
         {
             date: '28.10.2020',
             product: 'Bułeczki',
-            category: 'Żywność',
+            category: 2,
             cost: 12.67
         },
         {
             date: '27.10.2020',
             product: 'Wódeczka',
-            category: 'Żywność',
+            category: 1,
             cost: 70
         },
         {
             date: '26.10.2020',
             product: 'Komputer',
-            category: 'Elektronika',
+            category: 1,
             cost: 800
         },
         {
             date: '25.10.2020',
             product: 'fajeczki',
-            category: 'Używki',
+            category: 1,
             cost: 70
         },
         {
             date: '24.10.2020',
             product: 'Cyberpunk 2077',
-            category: 'Gry i Rozrywka',
+            category: 2,
             cost: 199.99
         },
         {
             date: '23.10.2020',
             product: 'kiełbasa',
-            category: 'Gry i Rozrywka',
+            category: 3,
             cost: 12.99
         },
     ])
@@ -153,27 +153,67 @@ const GlobalProvider = ({children}) => {
             id: 3,
             name: "Jedzenie"
         },
+        {
+            id: 1,
+            name: "Hobby"
+        },
+        {
+            id: 2,
+            name: "Rozrywka"
+        },
+        {
+            id: 3,
+            name: "Jedzenie"
+        },
+        {
+            id: 1,
+            name: "Hobby"
+        },
+        {
+            id: 2,
+            name: "Rozrywka"
+        },
+        {
+            id: 3,
+            name: "Jedzenie"
+        },
+        {
+            id: 1,
+            name: "Hobby"
+        },
+        {
+            id: 2,
+            name: "Rozrywka"
+        },
+        {
+            id: 3,
+            name: "Jedzenie"
+        },
     ]) 
 
 
     const [userPurpose, setUserPurpose] = useReducer(userPurposeReducer, [ 
         {
-            value: "KONIK",
+            id: 1,
+            name: "KONIK",
             moneySave: "70", 
             money: 80 
         },
         {
-            value: "Mydło", 
+            id: 2,
+            name: "Mydło", 
             moneySave: 60, 
             money: 80 
         },
         {
-            value: "Waga", 
+            id: 3,
+            name: "Waga", 
             moneySave: 20, 
             money: 100 
         },
         {
-            value: "zegar", 
+            id: 4,
+            name: "zegar", 
             moneySave: 100, 
             money: 100 
         }

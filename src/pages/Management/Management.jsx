@@ -10,7 +10,7 @@ const Management = () => {
             <div className="managementWrapper__Edit">
                 <Plate value="800PLN" description="W sumie zaosczędzono" edit />
                 <Plate value="797PLN" description="W sumie wydano" edit />
-                <h2>Historia Celi</h2>
+                <h2>Zarządzaj</h2>
                 <Categories />
                 <PurposeHistory edit />
                 <ExpenseHistory edit />

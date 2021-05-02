@@ -17,39 +17,42 @@ const Menu = () => {
     }
     return (
 
-<div className="Menu__wrapper" ref={ref}>
+<div className="Menu__wrapper"  ref={ref} > 
 
-    <div className="Menu__wrapper_profil">
-    <img src={defaultIMG} alt="Zdjęcie profilowe"/>
-        <span>Jarosław Bińczyk</span>
-        <span>Poland</span>
-    </div>
-    <div className="Menu__wrapper_menu">
-        <ul>
+    <div className="Menu__wrapper_mainMenu">
+        <div className="Menu__wrapper_mainMenu_profil">
+            <img src={defaultIMG} alt="Zdjęcie profilowe"/>
+                <span>Jarosław Bińczyk</span>
+                <span>Poland</span>
+
+        </div>
+        <div className="Menu__wrapper_mainMenu_menu">
+            <ul>
 
 
-            <NavLink to='/dashboard'>
-            <li>
-                <FontAwesomeIcon icon={faChartLine} />
-                <span>Dashboard</span>
-            </li>
-            </NavLink>
+                <NavLink to='/dashboard'>
+                <li>
+                    <FontAwesomeIcon icon={faChartLine} />
+                    <span>Dashboard</span>
+                </li>
+                </NavLink>
 
-            <NavLink to='/details'>
-            <li>
-                <FontAwesomeIcon icon={faInfoCircle} />
-                <span>Szczegóły</span>
-            </li>
-            </NavLink>
+                <NavLink to='/details'>
+                <li>
+                    <FontAwesomeIcon icon={faInfoCircle} />
+                    <span>Szczegóły</span>
+                </li>
+                </NavLink>
 
-            <NavLink to='/management'>
-            <li>
-                <FontAwesomeIcon icon={faTasks} />
-                <span>Tryb zarządzania</span>
-            </li>
-            </NavLink>
+                <NavLink to='/management'>
+                <li>
+                    <FontAwesomeIcon icon={faTasks} />
+                    <span>Tryb zarządzania</span>
+                </li>
+                </NavLink>
 
-        </ul>
+            </ul>
+        </div>
     </div>
 
     <div onClick={handlerClick} className="Menu__wrapper_toggle" >

@@ -11,26 +11,7 @@
 
     &__form {
         display: flex;
-        height: 60px;
-        line-height: 60px;
-        input {
-            margin: 10px;
-            display: block;
-        }
-
-        p {
-            font-size: 2em ;
-        }
-
-        input {
-            color: $mainColor4;
-
-        }
-
-        input[type="radio"] {
-            // color: white;
-        }
-
+        
     }
 
 
@@ -63,4 +44,26 @@
         }
         
     }
+}
+
+
+@media (max-width: 690px) {
+    .ExpenseHistoryWrapper {
+        &__form {
+            flex-direction: column;
+            align-items: space-between;
+            margin: auto;
+        }
+    
+    
+        &__table {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+    
+            
+            
+            
+        }
+    }   
 }

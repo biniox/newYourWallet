@@ -4,6 +4,7 @@ import { globalContext } from './../../context/GlobalStore';
 import {NotificationManager} from 'react-notifications'
 
 import './AddBudget.scss';
+import Loader from '../../components/loader/Loader';
 
 const AddBudget = () => {
     const {userData, setUserData, setModal} = useContext(globalContext);
@@ -28,10 +29,10 @@ const AddBudget = () => {
 
             <div className="AddBudgetWrapper__form">
 
-                <input onChange={handlerOnChange}type="number" placeholder="ile" value={inputState}/> 
+                <input onChange={handlerOnChange} type="number" placeholder="ile" value={inputState}/> 
                 <Button onClick={handlerOnClick}>Dodaj</Button>
             </div>
-
+            {/* <Loader/> */}
         </div>
     )
 }

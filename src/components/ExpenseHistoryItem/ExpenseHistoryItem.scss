@@ -6,7 +6,6 @@
     &-item{
         width: 25%;
         text-align: center;
-        line-height: 50px;
         height: 50px;
     }
     
@@ -25,6 +24,37 @@
     &-item.label {
         font-weight: 700;
         color: $mainColor1;
+    }
+
+    :nth-child(3) {
+        color: $mainColor1;
+    }
+}
+
+
+@media (max-width: 690px) {
+    .ExpenseHistoryItem {
+        flex-wrap: wrap;
+        flex-direction: flex-start;
+
+        :first-child, :nth-child(2) {
+            width: 100%;
+        }
+        &-item{
+            text-align:left;
+            height: 10px;
+        }
+        
+        &-item.price{
+            font-size: 1.0em;
+        }
+        &-item.action{
+            font-size: 1.0em;
+        }
+        
+        &-item.label {
+            display: none;
+        }
     }
 }
 

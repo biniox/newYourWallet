@@ -1,5 +1,7 @@
 import AddBudget from "../modalComponents/AddBudget/AddBudget";
+import AddCategory from "../modalComponents/AddCategory/AddCategory";
 import AddExpense from "../modalComponents/AddExpense/AddExpense";
+import AddPurpose from "../modalComponents/AddPurpose/AddPurpose";
 
 const modalReducer = (state, action) => {
     switch (action.type) {
@@ -11,6 +13,20 @@ const modalReducer = (state, action) => {
             break;
         case 'ADD_BUDGET':
             return {display: true, modalComponent: <AddBudget/>};
+            break;
+
+        case 'ADD_CATEGORY':
+            return {display: true, modalComponent: <AddCategory/>};
+            break;
+        case 'EDIT_CATEGORY':
+            return {display: true, modalComponent: <AddCategory toEdit={action.payload} />};
+            break;
+
+        case 'ADD_PURPOSE':
+            return {display: true, modalComponent: <AddPurpose/>};
+            break;
+        case 'EDIT_PURPOSE':
+            return {display: true, modalComponent: <AddPurpose toEdit={action.payload} />};
             break;
 
     

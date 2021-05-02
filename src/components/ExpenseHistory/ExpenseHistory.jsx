@@ -1,9 +1,12 @@
 import './ExpenseHistory.scss';
 
-import {useState, useContext} from 'react';
+import {useState, useContext, useEffect} from 'react';
 
-import ExpenseHistoryItem from './../ExpenseHistoryItem/ExpenseHistoryItem'
+import ExpenseHistoryItem from './../ExpenseHistoryItem/ExpenseHistoryItem';
+import Pagination from './../pagination/pagination';
 import { globalContext } from '../../context/GlobalStore';
+import DatePicker from '../DatePicker/DatePicker';
+import RadioBox from './../radioBox/RadioBox';
 
 const ExpenseHistory = ({edit}) => {
 
@@ -11,70 +14,96 @@ const ExpenseHistory = ({edit}) => {
     const nowMinusYear = new Date();
     nowMinusYear.setMilliseconds(now.getMilliseconds() - 365*24*3600000);
 
-    const {userExpenses, setUserExpenses} = useContext(globalContext);
-    const [listOfExpense, setListOfExpense] = useState(userExpenses);
+    const {userExpenses, userCategory} = useContext(globalContext);
+    const [activeNumber, setActiveNumber] = useState(0);
 
 
     const [dateTo, setDateTo] = useState(now.toLocaleDateString('fr-CA'));
     const [dateFrom, setDateFrom] = useState(nowMinusYear.toLocaleDateString('fr-CA'));
 
-    const [type, setType] = useState(1);
+    const [type, setType] = useState(0);
     
+    const filterExpense = () => userExpenses.filter(item => {
+        let itemDateArr = item.date.split(".");
 
-
-    const filterExpense = e => e.filter(item => {
-
-        let itemDateParsed = Date.parse(item.date);
-        let dateFromParsed = Date.parse(dateFrom);
+        let itemDateParsed = Date.parse(itemDateArr[1] + "." + itemDateArr[0] + "." + itemDateArr[2]);
+        let dateFromParsed = Date.parse(dateFrom) - 3600000;
         let dateToParsed = Date.parse(dateTo);
 
-        // return dateToParsed>=itemDateParsed;
-        return true;
+        return dateToParsed>=itemDateParsed && dateFromParsed<=itemDateParsed;
     });
 
-    /* the methods, generating list of products and pagination Buttons */
-     const mappExpense = (number) => filterExpense(userExpenses).map((item, index) => 
-                    (index<5*(number+1) && (index>=(number*5))) && <ExpenseHistoryItem {...item} edit={edit} /> );
+    const [filteredItems, setFilteredItems] = useState(filterExpense());
 
-    const mappButton = (activeNumber) => {
-        let generatedButton = []; 
-        for(let i = 0; i<Math.ceil(filterExpense(userExpenses).length/5); i++) {
-            generatedButton.push(
-                <button 
-                    value={i} 
-                    className={activeNumber==i ? "active" : ""} 
-                    onClick={handlerClick}
-                >
-                    {i+1}
-                </button>
-            );
-        }
-        return generatedButton;
-    }
+     const mappExpense = (number) => {
+         if(type) {
+                let tempArr = [];
+                userCategory.forEach((itemCategory) => {
+                    let money = 0;
+                    let products = "";
+                    let counter = 0;
+                    filteredItems.forEach(itemExpense => {
+                        if(itemExpense.category == itemCategory.id) {
+                            if(counter!=5) {
+                                products += itemExpense.product + ", ";
+                                counter++;
+                            } 
+                            money += itemExpense.cost;
+                        }
+                    });
+                    if(counter == 5) products += "...";
 
-    const handlerClick = (e) => { 
-        setMappedItems(mappExpense(e.target.value*1));
-        setMappedButtons(mappButton(e.target.value*1));
-    }
+                    if(money>0)
+                        tempArr.push({
+                            date: dateFrom + " - " + dateTo,
+                            product: products,
+                            category: itemCategory.name,
+                            cost: money.toFixed(2)
+                        });
+                });
+                return tempArr.map((item, index) => 
+                (index<5*(number+1) && (index>=(number*5))) && <ExpenseHistoryItem {...item} edit={edit} /> );
 
-    const handlerDateFrom = (e) => setDateFrom(e.target.value);
-    const handlerDateTo = (e) => setDateTo(e.target.value);
+         } else {
+             return filteredItems.map((item, index) => 
+             (index<5*(number+1) && (index>=(number*5))) && <ExpenseHistoryItem {...item} edit={edit} /> );
+         }
+     }
+
+
+
+    
+    useEffect(() => {
+        setFilteredItems(filterExpense());
+        setActiveNumber(0);    
+    }, [dateFrom, dateTo]);
+
+
+    useEffect(() => {
+        setMappedItems(mappExpense(activeNumber)); 
+    }, [filteredItems, activeNumber, type]);
 
     const [mappedItems, setMappedItems] = useState(mappExpense(0));
-    const [mappedButtons, setMappedButtons] = useState(mappButton(0))
+
+    const handlerClick = (e) => setActiveNumber(e);
+    const handlerRadio = (e) => setType(e);
+    const handlerDateFrom = (e) => setDateFrom(e);
+    const handlerDateTo = (e) => setDateTo(e);
+
+
+
 
     return (
         <div className="ExpenseHistoryWrapper">
             <div className="ExpenseHistoryWrapper__form">
-                    <input type="date" value={dateFrom} onChange={handlerDateFrom} />
-                    <p> - </p>
-                    <input type="date" value={dateTo} onChange={handlerDateTo}/>     
+                    <DatePicker
+                        dateFrom={dateFrom} 
+                        dateTo={dateTo}
+                        handlerFrom={handlerDateFrom}
+                        handlerTo={handlerDateTo}
+                    />
 
-                    <input type="radio" name="History"/>
-                    <label>Szczegóły</label>
-
-                    <input type="radio" name="History"/>
-                    <label>Kategorie</label>
+                    <RadioBox arr={["Szczegóły", "Kategorie"]} click={handlerRadio} />
             </div>
             <div className="ExpenseHistoryWrapper__table">
 
@@ -90,9 +119,13 @@ const ExpenseHistory = ({edit}) => {
             {mappedItems}
 
             <div className="ExpenseHistoryWrapper__table-paging">
-            {mappedButtons}
+                <Pagination
+                    numOfButtons={!type ? Math.ceil(filteredItems.length/5) : Math.ceil(userCategory.length/5)} 
+                    activeNumber={activeNumber}
+                    click={handlerClick}
+                />
             </div>
-
+            
 
 
 

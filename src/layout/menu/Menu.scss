@@ -1,107 +1,216 @@
 @import '../../colors.scss';
 
 
-.Menu__wrapper{
-
-    position: relative;
-    height: 100vh;
-    background-color:   $mainColor2;
-    width: 270px;
-    color: $fontColor1;
-    overflow: hidden;
-    white-space: nowrap;
-    padding-top: 60px;
-    transition: 0.5s;
-    box-shadow: 0px 0px 30px $mainColor2;
 
 
-    &_profil {
-        padding-top: 10px;
-        height: 200px;
-        text-align: center;
-        span{
-            display: block;
-        }
-        img{
-            width: 100px;
-            display: block;
-            border-radius: 50%;
-            margin-left: 50%;
-            transform: translateX(-50%);
-        }
 
-        :nth-child(2){
-            font-size: 1.5em;
-            color: lightblue;
-            padding-top: 20px;
-        }
-        
-    }
+    .Menu__wrapper {
 
-    
-    &_menu {
-    a {
-        text-decoration: none;
-        color: $fontColor1;   
 
-        li{
-            list-style: none;
-            font-size: 1.3em;
-            color: $fontColor1;
-            padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100vh;
+        background-color:   $mainColor2;
+        width: 270px;
+        color: $fontColor1;
+        overflow: hidden;
+        white-space: nowrap;
+        padding-top: 60px;
+        transition: 0.5s;
+        box-shadow: 0px 0px 30px $mainColor2;
 
-            &:hover {
+
+        &_toggle {
+
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+            margin-right: 15px;
+
+            :first-child {
+                font-size: 1.7em;
                 cursor: pointer;
-                background-color: lighten($mainColor2, 10%);
+
+                &:hover{
+                    color:   darken($fontColor1, 50%);
+                }
             }
 
+        }
 
 
-            span {
-                color: $fontColor2;
-                padding-left: 20px;
+        .Menu__wrapper_mainMenu{
+
+
+            &_profil {
+                padding-top: 10px;
+                height: 200px;
+                text-align: center;
+                span{
+                    display: block;
+                }
+                img{
+                    width: 100px;
+                    display: block;
+                    border-radius: 50%;
+                    margin-left: 50%;
+                    transform: translateX(-50%);
+                }
+        
+                :nth-child(2){
+                    font-size: 1.5em;
+                    color: lightblue;
+                    padding-top: 20px;
+                }
+                
+            }
+        
+            
+            &_menu {
+            a {
+                text-decoration: none;
+                color: $fontColor1;   
+        
+                li{
+                    list-style: none;
+                    font-size: 1.3em;
+                    color: $fontColor1;
+                    padding: 20px;
+        
+                    &:hover {
+                        cursor: pointer;
+                        background-color: lighten($mainColor2, 10%);
+                    }
+        
+        
+        
+                    span {
+                        color: $fontColor2;
+                        padding-left: 20px;
+                    }
+                }
+            }
+            
+            a.active > li {
+                background-color: lighten($mainColor2, 5%);
+            }
+        
+            
+        
+        
+        
+        
+        
             }
         }
-    }
-    
-    a.active > li {
-        background-color: lighten($mainColor2, 5%);
-    }
 
     }
 
+    @media (min-width: 1551px) {
+        .Menu__wrapper-mini {
+            width: 60px;
+            .Menu__wrapper_mainMenu_profil {
+                justify-content: center;
+                & > img{
+                    width: 40px;
 
+                }
 
+                :nth-child(2), :nth-child(3){
+                    visibility: hidden;
+                }
+                
+            }
 
-    &_toggle {
-        position: absolute;
-        bottom: 10px;
-        right: 15px;
-        font-size: 1.7em;
-        cursor: pointer;
-
-        &:hover{
-            color:   darken($fontColor1, 50%);
-        }
+        
+        }        
     }
-}
 
 
-.Menu__wrapper-mini {
-    width: 60px;
-    & > .Menu__wrapper_profil {
-        justify-content: center;
-        & > img{
-            width: 40px;
+// menu for mobile 
+@media (max-width: 1550px) {
+    .Menu__wrapper {
 
-        }
+        z-index: 99;
+        width: 100vw;
+        height: 100px;
+        left: 0px;
+        bottom: 0px;
+        position: fixed;
+        justify-content: stretch;
+        padding-top: 0px;
 
-        :nth-child(2), :nth-child(3){
+
+        &_toggle {
             visibility: hidden;
         }
+
+
+        .Menu__wrapper_mainMenu{
+            
+
+            &_profil {
+                padding-top: 0px;
+                height: 0px;
+                text-align: center;
+                visibility: hidden;
+                span{
+                    display: block;
+                }
+                img{
+                    width: 60px !important;
+                }
         
+                :nth-child(2), :nth-child(3){
+                    visibility: hidden;
+                }
+                
+            }
+        
+            
+            &_menu {
+
+
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                width: 100vw;
+
+                a {
+                    li{
+                        font-size: 2em;
+                        padding: 0px;
+                        width: calc(100vw/3);
+                        height: 100%;
+                        text-align: center;
+                        line-height: 100px;
+                      
+                        span {
+                            display: none;
+                        }
+                    }
+                }
+            }
+            }
+        }
+
     }
 
-   
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
