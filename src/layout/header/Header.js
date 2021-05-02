@@ -1,16 +1,18 @@
 
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Header.scss';
 
 const Header = () => (
     <div className="Header">
-        <span>
+        <div className="Header__left">
             APKA
-        </span>
-        <span>
-            <FontAwesomeIcon icon={faPowerOff} />
-        </span>
+        </div>
+        <div className="Header__right">
+        <FontAwesomeIcon icon={faUser} />
+        <FontAwesomeIcon icon={faPowerOff} />
+        </div>
     </div>
 )
 
